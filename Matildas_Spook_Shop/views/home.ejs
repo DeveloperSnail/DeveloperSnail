@@ -1,0 +1,54 @@
+<%- include('partials/header', { isCart: false }) %>
+
+<div id="Main_container" class="container">            
+    <div id="Ulazni_container" class="container">
+                
+        <div id="Pozdravni_tekst" class="item">
+            Welcome to Matilda's Spook Shop <br>
+            Where the only things that <br> 
+            aren't spooky, are our prices
+        </div>
+    </div>
+
+    <div id="Sidebar" class="container">
+                
+        <div id="Lista_kategorija" class="item">
+            <% for (let category of categories) { %>
+                <button class="kategorija" onclick="window.location.href='/home/getProducts/<%= category.id %>'"> <%= category.name  %></button>
+            <% } %>
+        </div>
+                
+        <div id="Informacije_o_stranici" class="item">
+            <p><a href="#">📨 Contacts</a></p>
+            <p><a href="#">📰 Newsletter</a></p>
+            <p><a href="#">📬 Subscribe</a></p>
+        </div>
+    </div>
+            
+    <div id="Glavni_dio" class="container">
+        <% for (let proizvod of categories[currentCat].products ) { %>
+                        
+            <button class="proizvod" data-product-id="<%= proizvod.id %>">
+                        
+                <div class="slika-wrapper container">
+                    <img src="/images/<%= proizvod.image %>" class="slika_proizvoda item" alt="<%= proizvod.name %>">
+                    <img src="/images/0 shopping cart product.png" class="cart-icon item" alt="Dodaj u košaru">
+                    <% 
+                        const quantity = kosarica[proizvod.id] || 0;
+                        if (quantity > 0) { 
+                    %>
+                        <div class="quantity-indicator"> <%= quantity %> </div>
+                    <% } else { %>
+                        <div></div>
+                    <% } %>
+                </div>
+
+                <p class="naziv-proizvoda item"><%= proizvod.name %></p>
+                <p class="kategorija-proizvoda item"> <%= categories[currentCat].name %></p>
+            </button>
+                
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
