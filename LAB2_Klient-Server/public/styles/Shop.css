@@ -1,0 +1,599 @@
+
+@font-face {
+    font-family: Creepster;
+    src: url(/fonts/Creepster/Creepster-Regular.ttf);
+}
+
+@font-face {
+    font-family: Butcherman;
+    src: url(/fonts/Butcherman/Butcherman-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lora_varijable;
+    src: url(/fonts/Lora/Lora-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Lora_italic;
+    src: url(/fonts/Lora/Lora-Italic-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Medival;
+    src: url(/fonts/MedivalSharp/MedievalSharp-Regular.ttf);
+}
+
+@font-face {
+    font-family: Uncial;
+    src: url(/fonts/UncialAntiqua/UncialAntiqua-Regular.ttf);
+}
+
+/*-------------------- BACKGROUND --------------------*/
+body {
+    background-color: black;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+/*-------------------- CONTAINERS --------------------*/
+
+#Header{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    
+    padding: 10px 20px 20px 10px;
+
+    height: fit-content;
+
+    background-color: rgb(31, 31, 31);
+
+    box-sizing: border-box;
+}
+
+#Main_container {
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        "intro intro"
+        "sidebar main";
+    grid-template-columns: 35% 65%;
+    align-items: start;
+
+    margin-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+    height: fit-content;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#Ulazni_container {
+    grid-area: intro;
+    display: flex;
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 1020 / 300;
+
+    background-image: url(/images/0\ Shop\ table\ Short\ Half\ Shorter.png);    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: top left;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#Sidebar {
+    grid-area: sidebar;
+
+    justify-items: center;
+    box-sizing: border-box;
+}
+
+#Glavni_dio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    height: fit-content;
+    width: 100%;
+
+    padding: 10px 20px;
+
+    background-image: url(/images/0\ Bottom\ of\ drawer.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    align-items: flex-start;
+    justify-items: center;
+    box-sizing: border-box;
+}
+
+/*-------------------- TEMPORARY VISUAL --------------------*/
+/*
+.item {
+    border: 2px solid royalblue;
+    box-sizing: border-box;
+}
+
+.container {
+    border: 2px solid crimson;
+    box-sizing: border-box;
+}
+*/
+/*-------------------- HEADER --------------------*/
+
+#Logotip{
+    width: 150px;
+    height: 150px;
+
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+}
+
+#Logo {
+    max-width: 100%;
+    height: auto; 
+}
+
+#Botun_za_košaru{
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(/images/0\ shopping\ cart.jpg);
+
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 20px;
+    height: 20px;
+  
+    background-color: crimson;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    z-index: 10;
+}
+
+.cart-count:empty {
+    display: none;
+}
+
+#Botun_za_košaru::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0); /* transparent by default */
+    transition: background-color 0.2s ease;
+}
+
+#Botun_za_košaru:hover::after {
+    background-color: rgba(0,0,0, 0.6);
+}
+
+#Botun_za_pretragu{
+    width: 60px;
+    height: 60px;
+
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+    background-image: url(/images/0\ search\ icon.png);
+}
+
+#Trenutna_kategorija_u_prikazu{
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    height: 60px;
+
+    background-color: rgb(92, 92, 92);
+
+    color: white;
+    font-family: Lora_varijable;
+    font-size: 25px;
+    font-weight: 500;
+    
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/*-------------------- ULAZNI CONTAINER --------------------*/
+
+#Pozdravni_tekst {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    
+    width: auto;
+    height: auto;
+
+    background-color: transparent;
+
+    font-family: Creepster;
+    font-size: clamp(15px, 4vw, 60px);
+    color: rgb(255, 183, 0);
+
+    text-align: left;
+}
+
+/*-------------------- SIDEBAR --------------------*/
+
+#Lista_kategorija {
+    display: grid;
+    gap: 5px;
+    align-items: start;
+
+    height: fit-content;
+    width: 100%;
+
+    padding: 20px 10px 30px;
+
+    background: rgb(31, 31, 31);
+    background-image: url(/images/0\ paper\ texture.jpg);
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.kategorija {
+    display: flex;
+    
+    height: 40px;
+    width: 100%;
+
+    padding-top: 5px;
+
+    background: transparent;
+    color: white;
+    font-family: Lora_varijable;
+    font-size: clamp(15px, 2vw, 20px);
+    font-weight: 500;
+    
+    cursor: pointer;
+    border: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.kategorija:hover {
+    color: orange;
+    font-size: clamp(20px, 2vw, 25px);
+    transition: color 0.2s ease;
+    transition: font-size 0.2s ease;
+}
+
+#Informacije_o_stranici {
+    display: flex;
+    flex-direction: column;
+
+    height: fit-content;
+    width: fit-content;
+
+    margin: 25px 15px;
+    padding: 30px 30px;
+
+    background-color: rgb(197, 197, 197);
+    font-size: 17px;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/*-------------------- PROIZVODI --------------------*/
+
+.proizvod {
+    height: fit-content;
+    width: 200px;
+
+    margin: 5px;
+    padding: 11px;
+
+    text-align: center;
+    background-color: beige;
+
+    cursor: pointer;
+}
+
+.slika-wrapper {
+    display: flex;
+    
+    position: relative;
+    
+    height: 175px;
+    width: 100%;
+
+    padding-left: 4px;
+
+    overflow: hidden;
+
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.slika_proizvoda {
+    display: block;
+
+    height: 100%;
+    width: auto;
+
+    object-fit: contain;
+}
+
+.cart-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 60%;
+    
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.proizvod:hover .cart-icon {
+    opacity: 1;
+}
+
+.proizvod:hover .slika_proizvoda {
+    opacity: 0.25;
+    transition: opacity 0.4s ease;
+}
+
+.proizvod:hover .slika-wrapper {
+    background-color: black;
+}
+
+.quantity-indicator {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+
+    width: fit-content;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    background-color: rgb(255, 60, 0);
+    color: white;
+    font-weight: bolder;
+    font-size: 17px;
+
+
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.naziv-proizvoda {
+    font-size: 16px;
+}
+
+.kategorija-proizvoda {
+    font-family: Lora-varijable;
+    font-size: 14px;
+}
+
+
+
+/*--------------------------------------*/
+/*---------- RACUNALNI PRIKAZ ----------*/
+/*--------------------------------------*/
+
+
+
+@media screen and (min-width: 1024px) {
+    /*-------------------- BACKGROUND --------------------*/
+    body {
+        background-color: black;
+        margin: 0 80px;
+    }
+
+    /*-------------------- CONTAINERS --------------------*/
+
+    #Header{
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        
+        padding: 10px 20px 20px 10px;
+
+        height: fit-content;
+
+        background-color: rgb(31, 31, 31);
+
+        box-sizing: border-box;
+    }
+
+    #Main_container {
+        display: grid;
+        gap: 10px;
+        grid-template-areas:
+            "sidebar intro"
+            "sidebar main";
+        grid-template-columns: 25% 75%;
+        align-items: start;
+
+        margin-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+
+        height: fit-content;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #Ulazni_container {
+        grid-area: intro;
+        display: flex;
+
+        position: relative;
+        min-height: 150px;
+        height: 100%;
+        width: 100%;
+        min-width: 0;
+        aspect-ratio: 1020 / 150;
+
+        background-image: url(/images/0\ Shop\ table\ Short\ Half\ Shorter.png);    
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: top left;
+
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    #Glavni_dio {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        height: fit-content;
+        width: 100%;
+
+        padding: 10px 20px;
+
+        background-image: url(/images/0\ Bottom\ of\ drawer.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        align-items: flex-start;
+        justify-items: center;
+        box-sizing: border-box;
+    }
+
+    /*-------------------- HEADER --------------------*/
+
+    #Logotip{
+        width: 120px;
+        height: 120px;
+
+        padding: 0px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    #Trenutna_kategorija_u_prikazu{
+        display: flex;
+        flex: 1;
+        min-width: 0;
+        height: 60px;
+
+        background-color: rgb(92, 92, 92);
+
+        color: white;
+        font-family: Lora_varijable;
+        font-size: 20px;
+        font-weight: 500;
+        
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    /*-------------------- ULAZNI CONTAINER --------------------*/
+
+    #Pozdravni_tekst {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        
+        width: auto;
+        height: auto;
+
+        background-color: transparent;
+
+        font-family: Creepster;
+        font-size: clamp(15px, 4vw, 40px);
+        color: rgb(255, 183, 0);
+
+        text-align: left;
+    }
+
+    /*-------------------- SIDEBAR --------------------*/
+
+    #Lista_kategorija {
+        display: grid;
+        gap: 5px;
+        align-items: start;
+
+        height: fit-content;
+        width: 100%;
+
+        padding: 40px 10px 60px;
+
+        background: rgb(31, 31, 31);
+        background-image: url(/images/0\ paper\ texture.jpg);
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    .kategorija {
+        display: flex;
+        
+        min-height: 40px;
+        height: fit-content;
+        width: 100%;
+
+        padding-top: 5px;
+
+        background: transparent;
+        color: white;
+        font-family: Lora_varijable;
+        font-size: clamp(15px, 2vw, 20px);
+        font-weight: 500;
+        
+        cursor: pointer;
+        border: none;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    #Informacije_o_stranici {
+        display: flex;
+        flex-direction: column;
+
+        height: 100%;
+        width: auto;
+
+        margin: 25px 20px;
+        padding: 20px 50px;
+
+        background-color: rgb(197, 197, 197);
+        font-size: 18px;
+
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+}

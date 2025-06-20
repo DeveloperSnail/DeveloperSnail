@@ -1,0 +1,28 @@
+<%- include('partials/header', { isCart: true }) %>
+
+<div id="Cart-container" class="container">
+    <div id="Cart-title" class="item">SHOPPING CART</div>
+
+    <div id="Cart-display-container" class="container">
+        <div id="Titlovi" class="container">
+            <div class="Display-ime item">PRODUCT NAME</div>
+            <div class="Display-ime item">QUANTITY</div>
+        </div>
+        <div id="Product-container" class="container">
+
+        <% for (let product of cartProducts) { %>
+            <div class="cart-row container">
+                <span class="product-name item"><%= product.name %></span>
+                <div class="quantity-control item">
+                    <button class="minus item" data-id="<%= product.id %>">-</button>
+                    <span class="quantity item"><%= product.qty %></span>
+                    <button class="plus item" data-id="<%= product.id %>">+</button>
+                </div>
+            </div>
+        <% } %>
+
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
